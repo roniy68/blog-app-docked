@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<main>
+  <%= render "shared/user_card", user: @user %>
+  <blockquote> 
+    <cite>Bio</cite></br></br>
+    <%= @user.bio %> 
+  </blockquote>
+
+  <%= render partial: "shared/post_card", collection: @user.recent_posts, as: :post, locals: { user: @user } %>
+
+  <%= link_to 'Back', root_path %>
+
+  <%= link_to "Create new post", new_user_post_path(@user), class:"button self-center" %>
+  <%= link_to "See all posts", user_posts_path(@user), class:"button self-center" %>
+</main>

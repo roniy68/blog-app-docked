@@ -1,0 +1,10 @@
+<main>
+  <%= render "shared/user_card", user: @user %>
+  </br>
+  <%= render partial: "shared/post_card", collection: @posts, as: :post, locals: { user: @user, show_comments: true } %>
+
+  <%= link_to "Back to Home", root_path %>
+  <%= link_to "New Post", new_user_post_path, class: "button self-center" %>
+
+  <button class="self-center">Pagination</button>
+</main>

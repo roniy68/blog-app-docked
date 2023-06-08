@@ -1,0 +1,5 @@
+<%= form_with model: @post, url: user_posts_path do |form| %>
+  <%= form.text_field :title, placeholder: "Title", required: true %>
+  <%= form.text_area :text, placeholder: "Body", required: true, rows: 6 %>
+  <%= form.submit %>
+<% end %>

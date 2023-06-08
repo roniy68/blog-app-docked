@@ -13,3 +13,82 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+main {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+span {
+    padding-top: 12px;
+    font-size: 14px;
+    text-align: right;
+    color: gray;
+    opacity: 0.8;
+}
+
+input {
+    width: 100%;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.post-card:hover {
+    border-color: var(--accent);
+}
+
+.post-card .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.post-card .col-reverse {
+    flex-direction: column-reverse;
+}
+
+.post-card h6 {
+    padding: 0;
+    margin: 0;
+}
+
+.user-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    background-color: gray;
+}
+
+.user-card:hover {
+    border-color: var(--accent);
+}
+
+.user-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.user-card p {
+    text-align: right;
+    color: gray;
+}
