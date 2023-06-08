@@ -12,7 +12,11 @@ class Post < ApplicationRecord
   after_save :update_posts_counter
 
   def recent_comments
-    Comment.where(post_id: id).order(created_at: :desc).limit(3)
+    comments(5)
+  end
+
+  def comments(limit = nil)
+    Comment.includes(:user).where(post_id: id).order(created_at: :desc).limit(limit)
   end
 
   private
