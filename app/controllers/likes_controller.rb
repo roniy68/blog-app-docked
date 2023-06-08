@@ -7,4 +7,10 @@ class LikesController < ApplicationController
 
     redirect_to user_post_path(@post.author_id, @post)
   end
+
+  private
+
+  def like_params
+    params.require(:like).permit(:post_id)
+  end
 end
