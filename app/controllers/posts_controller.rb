@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find_by(id: params['user_id'])
-    @posts = Post.where(author_id: params['user_id'])
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
@@ -20,5 +20,11 @@ class PostsController < ApplicationController
     )
 
     redirect_to user_post_path(current_user, @post)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
