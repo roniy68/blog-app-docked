@@ -1,0 +1,11 @@
+<%= link_to user_path(user) do %>
+  <article id="<%= dom_id user %>" class="user-card">
+    <img src="<%= user.photo %>" alt="<%= user.id %>"/>
+    <div>
+      <h2><%= user.name %></h2>
+      <p>
+        Number of posts: <%= user.posts_counter %>
+      </p>
+    </div>
+  </article>
+<% end %>

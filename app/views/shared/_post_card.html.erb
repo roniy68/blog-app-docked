@@ -1,0 +1,24 @@
+<%= link_to user_post_path(user, post) do %>
+  <% is_post_view ||= false %>
+
+  <article id="<%= dom_id post %>" class="post-card">
+    <h6><%= post.title %></h6>
+
+    <div
+      class="col <% if is_post_view %>col-reverse<% end %>"
+      >
+      <p><%= post.text %></p>
+      <span> Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %> </span>
+    </div>
+
+    <% show_comments ||= is_post_view ? true : false %>
+    <% comments = get_comments(post: post, is_post_view: is_post_view, show_comments: show_comments)  %>
+
+    <% if comments.length > 0 %>
+      <section>
+        <%= render partial: 'shared/comment', collection: comments %>
+      </section>
+    <% end %>
+  </article>
+<% end %>
+

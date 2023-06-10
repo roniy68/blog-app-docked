@@ -1,0 +1,12 @@
+<main>
+  <%= render "shared/post_card", post: @post, user: params['user_id'], is_post_view: true %>
+
+  <%= link_to post_likes_path(@post), data: { turbo_method: :post } do %>
+    <%= @post.likes_counter %> Like
+  <% end %>
+
+  <h3>New Comment</h3>
+  <%= render "comments/form", post: @post %>
+
+  <%= link_to "Back", user_posts_path(@post.user) %>
+</main>
